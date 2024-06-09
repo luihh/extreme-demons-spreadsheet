@@ -1,5 +1,5 @@
 import { getGoogleSheetsData } from '@/lib/gsheets';
-import { CheckIcon, CrossIcon, OngoingIcon } from './icons';
+import { CheckIcon, CrossIcon, OngoingIcon, QuestionMarkIcon } from './icons';
 import { CELL_COLORS, TEXT_COLORS, RATING_THRESHOLDS } from '../consts';
 
 const getCellColor = (value: string): string => CELL_COLORS[value] || '';
@@ -31,6 +31,8 @@ const getCompletionIcon = (value: string): JSX.Element => {
       return <CheckIcon />;
     case 'ONGOING':
       return <OngoingIcon />;
+    case 'MAYBE':
+      return <QuestionMarkIcon />;
     default:
       return <CrossIcon />;
   }
@@ -44,9 +46,9 @@ export default async function Table() {
   });
 
   return (
-    <div className="relative w-full lg:w-auto">
+    <div className="relative w-full overflow-x-auto lg:w-auto">
       <table className="w-full text-sm text-left rtl:text-right text-gray-400 dark:text-gray-400">
-        <thead className="sticky top-0 text-xm text-gray-600 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <thead className="sticky top-0 text-xm text-gray-600 text-center uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
             {[
               '#',
@@ -82,14 +84,16 @@ export default async function Table() {
               {row.map((cell, cellIndex) => (
                 <td
                   key={cellIndex}
-                  className={`px-6 py-4 font-bold whitespace-nowrap 
+                  className={`px-4 py-4 text-center font-bold whitespace-nowrap 
                     ${cellIndex === 0 ? 'bg-gray-700' : ''} 
                     ${cellIndex === 1 ? 'text-gray-200' : ''} 
                     ${cellIndex === 2 ? getCellColor(cell) : ''}
                     ${cellIndex === 4 ? getEnjoymentColor(cell) : ''} 
                     ${cellIndex === 5 ? getWorstFailColor(cell) : ''}`}
                 >
-                  {cellIndex === 2 ? getCompletionIcon(cell) : cell}
+                  <div className="flex justify-center">
+                    {cellIndex === 2 ? getCompletionIcon(cell) : cell}
+                  </div>
                 </td>
               ))}
             </tr>

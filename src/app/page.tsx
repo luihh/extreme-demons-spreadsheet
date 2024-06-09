@@ -22,7 +22,7 @@ export default async function Home() {
             </p>
           </div>
         </section>
-        <section className="section pb-8 scroll-m-20 w-full mx-auto container lg:max-w-4xl md:max-w-2xl flex justify-center">
+        <section className="section pb-8 scroll-m-20 w-full mx-auto container flex justify-center">
           <Table />
         </section>
       </main>

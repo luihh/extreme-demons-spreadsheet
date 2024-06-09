@@ -2,6 +2,7 @@ export const CELL_COLORS: { [key: string]: string } = {
   TRUE: 'bg-green-400 text-green-900',
   FALSE: 'bg-red-400 text-red-900',
   ONGOING: 'bg-yellow-400 text-yellow-900',
+  MAYBE: 'bg-blue-400 text-blue-900',
 };
 
 export const TEXT_COLORS = {

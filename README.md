@@ -2,4 +2,6 @@
 
 ### TODO
 
-- [ ] Improve mobile view (probably never doing this because I'm too lazy to do it)
+- [x] Fix mobile view (omg I really did)
+- [x] Add question mark status for the completion cell
+- [ ] Fix sticky table head (probably not happening)
